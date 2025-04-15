@@ -1,3 +1,29 @@
 <div class="cart-container">
-  <h2>Your Cart 🛒</h2>
+  <h2 class="title">Your Cart 🛒</h2>
+  <table style="border: 1">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody class="summary">
+      @for(p of cart;track p.product.id){
+      <tr>
+        <td>{{ p.product.name }}</td>
+        <td>{{ p.product.price }}</td>
+        <td>{{ p.Quantity }}</td>
+        <td><button (click)="incremant(p.product.id)">+</button></td>
+        <td><button (click)="decremant(p.product.id)">-</button></td>
+        <td><button (click)="delete(p.product.id)">X</button></td>
+        <td>{{ p.product.price * p.Quantity }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
 </div>
